@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Campeonato de Truco</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f0f0f0;
+        }
+        h1 {
+            text-align: center;
+            color: #2c3e50;
+        }
+        form {
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            margin-bottom: 20px;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+            color: #2c3e50;
+        }
+        input {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 10px;
+            border: 1px solid #bdc3c7;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+        input[type="button"] {
+            background-color: #3498db;
+            color: white;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s;
+        }
+        input[type="button"]:hover {
+            background-color: #2980b9;
+        }
+        .ranking {
+            background-color: #ffffff;
+            padding: 15px;
+            margin-bottom: 15px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        .ranking h2 {
+            color: #2c3e50;
+            margin-top: 0;
+        }
+        .ranking p {
+            margin: 5px 0;
+            padding: 5px;
+            background-color: #ecf0f1;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Campeonato de Truco</h1>
+    <form id="registrationForm">
+        <label for="nombre">Nombre:</label>
+        <input type="text" id="nombre" required>
+        
+        <label for="apellido">Apellido:</label>
+        <input type="text" id="apellido" required>
+        
+        <label for="edad">Edad:</label>
+        <input type="number" id="edad" required>
+        
+        <label for="localidad">Localidad:</label>
+        <input type="text" id="localidad" required>
+        
+        <label for="puesto">Posición (1, 2 o 3):</label>
+        <input type="number" id="puesto" required min="1" max="3">
+        
+        <input type="button" value="Guardar" onclick="guardarParticipante()">
+    </form>
+
+    <h2>Primer Puesto</h2>
+    <div id="primero" class="ranking">
+    </div>
+    <h2>Segundo Puesto</h2>
+    <div id="segundo" class="ranking">
+    </div>
+    <h2>Tercer Puesto</h2>
+    <div id="tercero" class="ranking">
+    </div>
+
+</body>
+</html>
+
+<script>
+    function guardarParticipante() {
+        var nombre = document.getElementById('nombre').value;
+        var apellido = document.getElementById('apellido').value;
+        var edad = document.getElementById('edad').value;
+        var localidad = document.getElementById('localidad').value;
+        var puesto = document.getElementById('puesto').value;
+        var participante = nombre + " " + apellido + " (" + edad + " años) - " + localidad;
+        
+        if (puesto == 1) {
+            document.getElementById("primero").innerHTML= participante;
+        } else if (puesto == 2) {
+            document.getElementById("segundo").innerHTML= participante;
+        } else if (puesto == 3) {
+            document.getElementById("tercero").innerHTML= participante;
+        } else {
+            alert("La posición debe ser 1, 2 o 3");
+            
+        }
+
+        document.getElementById('registrationForm').reset();
+    }
+</script>

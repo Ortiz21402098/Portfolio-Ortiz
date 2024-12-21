@@ -1,0 +1,27 @@
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 50px;
+    padding: 0;
+    background-color: gray;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+}
+.tarjeta-principal {
+    background-color: white;
+    border-radius: 10px;
+    overflow: hidden;
+    width: 300px;
+}
+.tarjeta-principal img {
+    width: 100%;
+    height: auto;
+}
+.tarjeta-interna {
+    padding: 20px;
+}
+.tarjeta-interna h2 {
+    margin-top: 0;
+}

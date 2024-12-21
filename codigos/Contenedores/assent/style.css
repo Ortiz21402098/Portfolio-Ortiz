@@ -1,0 +1,87 @@
+/* Alineaciones de texto */
+.contenedor {
+    border: 2px solid #333;
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
+.izquierda {
+    text-align: left;
+}
+
+.centro {
+    text-align: center;
+}
+
+.derecha {
+    text-align: right;
+}
+
+.justificado {
+    text-align: justify;
+}
+
+/* Contenedores dentro de contenedores */
+.contenedor-padre {
+    border: 2px solid #333;
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
+.contenedor-hijo {
+    text-align: right;
+    border: 1px solid #999;
+    padding: 10px;
+    margin-bottom: 10px;
+}
+.contenedor-hijo-delmedio {
+    text-align: left;
+    border: 1px solid #999;
+    padding: 10px;
+    margin-bottom: 10px;
+}
+
+/* Contenedores sobrepuestos */
+.contenedor-principal {
+    /* Borde sólido 
+    border: 1px solid #999;
+    */
+    /* Borde punteado 
+    border: 1px dotted #999;
+    */
+    /* Borde discontinuo 
+    border: 1px dashed #999;
+    */
+    /* Borde doble */
+    border: 5px double #999;
+    
+    /* Borde en relieve 
+    border: 1px ridge #999;
+    */
+    /* Borde en hundido 
+    border: 1px groove #999;
+    */
+    /* Borde redondeado 
+    border: 5px solid #999;
+    */
+    border-radius: 10px;
+
+    padding: 20px;
+    margin-bottom: 20px;
+    position: relative; /* Para posicionar los subcontenedores relativos a este contenedor */
+}
+
+.subcontenedor-grande {
+    border: 1px solid #999;
+    padding: 10px;
+    margin-bottom: 10px;
+}
+
+.subcontenedor-pequeño {
+    background-color: aquamarine;
+    border: 1px solid #999;
+    padding: 5px;
+    position: absolute; /* Para posicionar el subcontenedor pequeño */
+    top: 60%; /* Para que esté en la parte superior del contenedor principal */
+    left: 40%; /* Para que esté alineado a la izquierda */
+}

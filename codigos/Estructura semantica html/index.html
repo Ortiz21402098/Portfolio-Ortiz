@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Estructura Semántica</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f9f9f9;
+        }
+
+        header {
+            background-color: #82b2b8;
+            padding: 20px;
+            text-align: center;
+        }
+
+        nav {
+            background-color: #82b2b8;
+            display: flex;
+            justify-content: space-around;
+            padding: 10px 0;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        main {
+            display: flex;
+            margin: 20px;
+        }
+
+        .content {
+            flex: 3;
+            background-color: #ffa500;
+            margin-right: 20px;
+            padding: 20px;
+            border-radius: 5px;
+        }
+
+        aside {
+            flex: 1;
+            background-color: #ff6347;
+            padding: 20px;
+            border-radius: 5px;
+        }
+
+        .content h2, aside h2 {
+            margin-top: 0;
+        }
+
+        footer {
+            background-color: black;
+            color: white;
+            text-align: center;
+            padding: 10px 0;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Estructura semantica </h1>
+    </header>
+
+    <nav>
+        <a href="#">Inicio</a>
+        <a href="#">Acerca de</a>
+        <a href="#">Servicios</a>
+        <a href="#">Contacto</a>
+        <a href="#">Red social</a>
+    </nav>
+
+    <main>
+        <section class="content">
+            <h2>Título de nuestra estructura</h2>
+            <p>La estructura (del latín structūra) es la disposición y orden de las partes dentro de un todo. También puede entenderse como un sistema de conceptos coherentes enlazados, cuyo objetivo es precisar la esencia del objeto de estudio.</p>
+            <h2>Título de nuestra estructura</h2>
+            <p>La estructura (del latín structūra) es la disposición y orden de las partes dentro de un todo. También puede entenderse como un sistema de conceptos coherentes enlazados, cuyo objetivo es precisar la esencia del objeto de estudio.</p>
+        </section>
+
+        <aside>
+            <h2>Este es el sidebar</h2>
+            <p>El Sidebar o barra lateral es el espacio que está al lado del contenido de una página web (especialmente en un blog). Puede estar colocado en diferentes zonas, aunque lo más habitual es encontrarlo a la izquierda o a la derecha del contenido.</p>
+        </aside>
+    </main>
+
+    <footer>
+        <p>Franco Ortiz - San Francisco Córdoba</p>
+        <p>Footer</p>
+    </footer>
+</body>
+</html>

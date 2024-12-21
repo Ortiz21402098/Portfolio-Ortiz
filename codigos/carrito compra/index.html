@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Venta de Comida - Carrito</title>
+</head>
+<body>
+
+<header>
+    <h1> Venta de Comida </h1>
+</header>
+
+<div class="container">
+    <div id="products" class="products">
+        
+    </div>
+
+    <div class="cart">
+        <h3>Tu Carrito</h3>
+        <ul id="cart-items">
+        </ul>
+        <div id="total" class="total"></div>
+        <button id="clear-cart">Vaciar Carrito</button>
+        <button type="button" onclick="compra()" >Realizar compra</button>
+        <button type="button" onclick="mostrarTotal()">Mostrar total</button>
+    </div>
+</div>
+
+<script>
+
+    function compra(){
+        alert("Compra realizada");
+    }
+    
+class Producto {
+    constructor(nombre, precio, imagen) {
+        this.nombre = nombre;
+        this.precio = precio;
+        this.imagen = imagen;
+    }
+
+    mostrar() {
+        return `
+            <div class="product">
+                <img src="${this.imagen}" alt="${this.nombre}">
+                <h3>${this.nombre}</h3>
+                <p>Precio: $${this.precio}</p>
+                <button onclick="agregarAlCarrito('${this.nombre}', ${this.precio})">Agregar al Carrito</button>
+            </div>
+        `;
+    }
+}
+
+class Carrito {
+    constructor() {
+        this.items = [];
+    }
+
+    agregarProducto(producto) {
+        this.items.push(producto);
+    }
+
+    eliminarProducto(nombre) {
+        this.items = this.items.filter(item => item.nombre !== nombre);
+    }
+
+    vaciar() {
+        this.items = [];
+    }
+
+    mostrarCarrito() {
+        const cartItemsElement = document.getElementById('cart-items');
+        cartItemsElement.innerHTML = '';
+        this.items.forEach(item => {
+            const li = document.createElement('li');
+            li.textContent = `${item.nombre} - $${item.precio}`;
+            cartItemsElement.appendChild(li);
+        });
+    }
+    
+    mostrarTotal() { 
+        const totalElement = document.getElementById('total'); const total = this.obtenerTotal(); totalElement.textContent = `Total a pagar: $${total}`;
+    }
+
+    obtenerTotal() {
+        return this.items.reduce((total, item) => total + item.precio, 0);
+    }
+}
+
+const productos = [
+    new Producto('Hamburguesa', 5000, './imagen .jpg'),
+    new Producto('Pizza', 3000, './imagen1.jpg'),
+    new Producto('Papas Fritas', 2300,'./imagen 2.jpg'),
+    new Producto('Ensalada', 1500, './imagen 3.jpg'),
+];
+
+const carrito = new Carrito();
+
+const productosElement = document.getElementById('products');
+productos.forEach(producto => {
+    productosElement.innerHTML += producto.mostrar();
+});
+
+function agregarAlCarrito(nombre, precio) {
+    const producto = new Producto(nombre, precio, ''); 
+    carrito.agregarProducto(producto);
+    carrito.mostrarCarrito();
+    alert(`${nombre} Su pedido ya esta en cola...`);
+}
+
+document.getElementById('clear-cart').addEventListener('click', () => {
+    carrito.vaciar();
+    carrito.mostrarCarrito();
+    alert('Su pedidose está dando de baja.');
+});
+
+function mostrarTotal(){
+    carrito.mostrarTotal();
+}
+</script>
+
+</body>
+</html>
